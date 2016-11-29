@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Jefes de Linea de Automotriz</h1>
+  <div class="row">
+    <div class="panel-body">
+      <div class="dataTable_wrapper">
+        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+          <thead>
+      <tr>
+          <th>Usuario</th>
+          <th>Nombre</th>
+          <th>Area</th>
+          <th>Puesto</th>
+          <th>Horario</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in empleados  %} 
+       {% if item.empleado_area == "Automotriz" %} 
+        <tr>
+          <td>{{ item.usuario }}</td>
+          <td>{{ item.nombre }}</td>
+          <td>{{ item.empleado_area }}</td>
+          <td>{{ item.empleado_puesto}}</td>
+          <td>{{ item.empleado_turno}}</td>
+        </tr>
+        {%endif%}
+      {% endfor %}
+    </tbody>
+        </table>
+    </div>
+    <!-- /.table-responsive -->
+  </div>
+</div>
+
+<h1>Jefes de Linea de Microtecnologica</h1>
+  <div class="row">
+    <div class="panel-body">
+      <div class="dataTable_wrapper">
+        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example2">
+          <thead>
+      <tr>
+          <th>Usuario</th>
+          <th>Nombre</th>
+          <th>Area</th>
+          <th>Puesto</th>
+          <th>Horario</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in empleados  %} 
+       {% if item.empleado_area == "Microtecnologica" %} 
+        <tr>
+          <td>{{ item.usuario }}</td>
+          <td>{{ item.nombre }}</td>
+          <td>{{ item.empleado_area }}</td>
+          <td>{{ item.empleado_puesto}}</td>
+          <td>{{ item.empleado_turno}}</td>
+        </tr>
+        {%endif%}
+      {% endfor %}
+    </tbody>
+      </table>
+    </div>
+    <!-- /.table-responsive -->
+  </div>
+</div>
+
+{% endblock %}

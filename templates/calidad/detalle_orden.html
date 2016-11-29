@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+<br>
+<div class="panel panel-default">
+	<div class="panel-heading"><h4>Detalle de Orden</h4></div>
+	<div class="panel-body">
+	<h4> <strong>Numero de orden: </strong>{{object.numero_de_orden}}</h4>
+	<h4> <strong>Fecha:</strong>{{object.fecha}} </h4>
+	<h4> <strong>Cantidad de piezas:</strong>{{object.cantidad_de_piezas}}</h4>
+	<h4> <strong>Empleado de almacen: </strong>{{object.usuario_de_almacen}}</h4>
+	<h4> <strong>Jefe de linea:</strong>{{object.jefe_de_linea}}</h4>
+	 <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+			<h4>{{ form.as_p }}</h4>
+	    <button type="submit" class="save btn btn-default">Save</button>
+	    <button type="reset" class="cancel btn btn-default">Cancel</button>
+    </form>
+	</div>
+</div>
+  {% endif %}
+{% endblock %}
